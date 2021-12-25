@@ -99,6 +99,10 @@ def clean_text(text, detect_translate=True, remove_stopwords=True, lemmatize_tex
 
     return text
 
+@app.get("/")
+def hello():
+    return {"message":"Hello! Welcome to Ticket Classifier"}
+
 @app.get("/predict-ticketdesc")
 def predict_grp(ticketdesc: str):
     """
