@@ -2,8 +2,6 @@
 from string import punctuation
 from nltk.tokenize import word_tokenize
 import nltk
-nltk.download('omw-1.4')
-nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import re  # regular expression
