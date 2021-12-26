@@ -17,8 +17,8 @@ import unicodedata
 from nltk import word_tokenize
 
 app = FastAPI(
-    title="Ticket Prediction API",
-    description="A simple API that use NLP model to predict the group to which a ticket should be assigned basis the description",
+    title="Ticket Group Prediction API",
+    description="A simple API that uses NLP model to predict the group to which a ticket should be assigned basis the description",
     version="0.1",
 )
 
@@ -108,6 +108,10 @@ def predict_grp(ticketdesc: str):
     :param ticketdesc:
     :return: prediction
     """
+    # Considering only first 3000 characters
+    if len(ticketdesc) >3000:
+        ticketdesc=ticketdesc[0:3000]
+    
     # clean the review
     cleaned_desc = clean_text(ticketdesc)
     
